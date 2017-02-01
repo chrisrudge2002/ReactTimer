@@ -4,11 +4,7 @@ const Timer = React.createClass({
 	render: function() {
 		return (
 			<div>
-				<div>
-					<div>
-						<p>Timer.jsx Rendered</p>
-					</div>
-				</div>
+				<p>Timer.jsx Rendered</p>
 			</div>
 		);
 	}
