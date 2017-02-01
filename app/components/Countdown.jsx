@@ -1,12 +1,12 @@
 const React = require('react');
 
-const Timer = React.createClass({
+const Countdown = React.createClass({
 	render: function() {
 		return (
 			<div>
 				<div>
 					<div>
-						<p>Timer.jsx Rendered</p>
+						<p>Countdown.jsx Rendered</p>
 					</div>
 				</div>
 			</div>
@@ -14,4 +14,4 @@ const Timer = React.createClass({
 	}
 });
 
-module.exports = Timer;
+module.exports = Countdown;
