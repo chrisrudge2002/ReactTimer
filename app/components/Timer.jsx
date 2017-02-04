@@ -10,28 +10,28 @@ const Timer = React.createClass({
 			timerStatus: 'stopped'
 		};
 	},
+	componentDidUpdate: function(prevProps, prevState) {
+		if (prevState.timerStatus !== this.state.timerStatus) {
+			switch (this.state.timerStatus)
+			{
+				case 'started':
+					this.startTimer();
+					break;
+				case 'paused':
+					this.stopTimer();
+					break;
+				case 'stopped':
+					this.setState({count: 0});
+					this.stopTimer();
+					break;
+			}
+		}
+	},
 	componentWillUnmount: function() {
 		this.stopTimer();
 	},
 	handleStatusChange(newStatus) {
-		switch (newStatus)
-		{
-			case 'started':
-				this.setState({timerStatus: 'started'});
-				this.startTimer();
-				break;
-			case 'paused':
-				this.setState({timerStatus: 'paused'});
-				this.stopTimer();
-				break;
-			case 'stopped':
-				this.setState({
-					count: 0,
-					timerStatus: 'stopped'
-				});
-				this.stopTimer();
-				break;
-		}
+		this.setState({timerStatus: newStatus});
 	},
 	startTimer: function() {
 		this.timer = setInterval(() => {
